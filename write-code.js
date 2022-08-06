@@ -12,19 +12,17 @@
 // addToZero([1, 2, 3, -2]);
 // // -> True
 
-function addtoZero(n) {    
-    for(let i = 0; i < n.length; i++)
-    {
-        for (let j=0; j<n.length; j++) {
-            if (n[i] + n[j] == 0){
-                return true;
+function addtoZero (arr) {   
+    for(i = 0; i<arr.length; i++) {
+        for (j=i+1; j<arr.length; j++) {
+            if ((arr[i] + arr[j]) === 0){
+            return true;
             }
-         return false;
-        }
-    }
+            }
+        } return false;
 }
-
-console.log(addtoZero([3,8,0,9,-9]))
+console.log(addtoZero([1,2,3,4,5,-3]))
+//extra credit space complexity: run:O(n^2) space:O(1)
 
 
 
@@ -47,6 +45,10 @@ function uniChars (str) {
     }
 
 console.log(uniChars('elo'))
+//extra credit space complexity: run:O(n) space:O(1)
+
+
+
 
 // 3) Pangram Sentence
 // A pangram is a sentence that contains all the letters of the English alphabet at least once, like “The quick brown fox jumps over the lazy dog.”
@@ -61,6 +63,23 @@ console.log(uniChars('elo'))
 // isPangram("I like cats, but not mice");
 // // -> False
 
+
+function isPangram (string) {
+    let loString = string.toLowerCase();
+    let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    for (let i=0; i<alphabet.length; i++){
+        if (loString.indexOf(alphabet[i]) <0){
+            return false;
+        }
+    }
+    return true;
+}
+console.log(isPangram('The quick brown fox jumps over the lazy dog.'))
+//extra credit space complexity: run:O(n) space:O(1)
+
+
+
+
 // 4) Longest Word
 // Write a function, find_longest_word, that takes a list of words and returns the length of the longest one.
 
@@ -68,4 +87,16 @@ console.log(uniChars('elo'))
 
 // findLongestWord(["hi", "hello"]);
 // // -> 5
-// Be sure to add this file to your Github repo for this project
+
+function findLongestWord (wordArray) {
+    let longestWord = 0
+    for (let i=0; i<wordArray.length; i++) {
+        if (wordArray[i].length >longestWord) {
+            longestWord = wordArray[i].length
+        }
+    }
+    return longestWord
+}
+
+console.log(findLongestWord(['hi', 'hello', 'goodmorning', 'ciao']))
+//extra credit space complexity: run:O(n) space:O(1)
