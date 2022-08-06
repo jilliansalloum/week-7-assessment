@@ -12,9 +12,20 @@
 // addToZero([1, 2, 3, -2]);
 // // -> True
 
-addToZero () => {
-    
+function addtoZero(n) {    
+    for(let i = 0; i < n.length; i++)
+    {
+        for (let j=0; j<n.length; j++) {
+            if (n[i] + n[j] == 0){
+                return true;
+            }
+         return false;
+        }
+    }
 }
+
+console.log(addtoZero([3,8,0,9,-9]))
+
 
 
 // 2) Unique Characters
@@ -25,6 +36,17 @@ addToZero () => {
 
 // hasUniqueChars("Moonday");
 // // -> False
+
+function uniChars (str) {
+    for (i = 0; i <str.length-1; i++) {
+        for (j=i+1; j<str.length; j++){
+            if (str[i] == str[j]) return false;
+            }
+        }
+        return true;
+    }
+
+console.log(uniChars('elo'))
 
 // 3) Pangram Sentence
 // A pangram is a sentence that contains all the letters of the English alphabet at least once, like “The quick brown fox jumps over the lazy dog.”
@@ -46,4 +68,4 @@ addToZero () => {
 
 // findLongestWord(["hi", "hello"]);
 // // -> 5
-// Be sure to add this file to your Github repo for this project.
+// Be sure to add this file to your Github repo for this project
